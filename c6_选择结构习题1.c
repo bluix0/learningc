@@ -16,31 +16,34 @@ printf("输入一个不超过五位数的正整数：\n");
 int num = 0;
 scanf_s("%d", &num);
 
-if (num >= 10000) 
+    if (num >= 10000) 
 {
     printf("该数字是 5 位数。\n");
     printf("每一位数字是: %d %d %d %d %d\n", num / 10000, (num / 1000) % 10, (num / 100) % 10, (num / 10) % 10, num % 10);
     printf("按逆序输出各位数字: %d%d%d%d%d\n", num % 10, (num / 10) % 10, (num / 100) % 10, (num / 1000) % 10, num / 10000);
 }
-else if (num >= 1000)
+
+    else if (num >= 1000)
 {
     printf("该数字是 4 位数。\n");
     printf("每一位数字是: %d %d %d %d\n", num / 1000, (num / 100) % 10, (num / 10) % 10, num % 10);
     printf("按逆序输出各位数字: %d%d%d%d\n", num % 10, (num / 10) % 10, (num / 100) % 10, num / 1000);
 }
-else if (num >= 100) 
+    else if (num >= 100) 
 {
     printf("该数字是 3 位数。\n");
     printf("每一位数字是: %d %d %d\n", num / 100, (num / 10) % 10, num % 10);
     printf("按逆序输出各位数字: %d%d%d\n", num % 10, (num / 10) % 10, num / 100);
 }
-else if (num >= 10) 
+
+    else if (num >= 10) 
 {
     printf("该数字是 2 位数。\n");
     printf("每一位数字是: %d %d\n", num / 10, num % 10);
     printf("按逆序输出各位数字: %d%d\n", num % 10, num / 10);
 }
-else 
+
+    else 
 {
     printf("该数字是 1 位数。\n");
     printf("每一位数字是: %d\n", num);
