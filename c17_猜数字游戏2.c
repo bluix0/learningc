@@ -1,7 +1,7 @@
 /**********************************
-³ÌĞò£º²ÂÊı×ÖÓÎÏ·2
-±àÕß£ºbluix0
-Ê±¼ä£º2025.3.8
+ç¨‹åºï¼šçŒœæ•°å­—æ¸¸æˆ2
+ç¼–è€…ï¼šbluix0
+æ—¶é—´ï¼š2025.3.8
  **********************************/
 
 #include<stdio.h>
@@ -11,13 +11,13 @@
 #define MAX_NUM 1000
 #define MIN_NUM 1
 
-//Çå¿Õ
+//æ¸…ç©º
 void CLEAR(void)
 {
 	while (getchar() != '\n');
 }
 
-//ÖÆ×÷Ëæ»úÊı
+//åˆ¶ä½œéšæœºæ•°
 int MAKENUM(void)
 {
 	srand(time(NULL));
@@ -26,43 +26,43 @@ int MAKENUM(void)
 	return n;
 }
 
-//½ÓÊÜÊı¾İ²¢¼ì²é
+//æ¥å—æ•°æ®å¹¶æ£€æŸ¥
 int PUT_CHECK(void)
 {
 	int guessnumber;
 	while (scanf_s("%d", &guessnumber) != 1)
 	{
-		printf("ÊäÈëÎŞĞ§£¬ÇëÊäÈëÒ»¸öÕûÊı\n");
+		printf("è¾“å…¥æ— æ•ˆï¼Œè¯·è¾“å…¥ä¸€ä¸ªæ•´æ•°\n");
 		CLEAR();
 	}
 	CLEAR();
 	return guessnumber;
 }
 
-//ÅĞ¶Ï´óĞ¡
+//åˆ¤æ–­å¤§å°
 int DECIDE(int guessnumber, int makenumber,int num)
 {
 	if (guessnumber != makenumber)
 	{
 		if (guessnumber > makenumber)
-			printf("Äã²ÂµÄÌ«´óÁË£¡\n");
+			printf("ä½ çŒœçš„å¤ªå¤§äº†ï¼\n");
 		else
-			printf("Äã²ÂµÄÌ«Ğ¡ÁË£¡\n");
+			printf("ä½ çŒœçš„å¤ªå°äº†ï¼\n");
 		return 1;
 	}
 	else
-		printf("Äã²Â¶ÔÁË,³¢ÊÔ´ÎÊıÎª%d\n",num);
+		printf("ä½ çŒœå¯¹äº†,å°è¯•æ¬¡æ•°ä¸º%d\n",num);
 }
 
-//ÅĞ¶ÏÊÇ·ñ¼ÌĞø
+//åˆ¤æ–­æ˜¯å¦ç»§ç»­
 int WEATHER(int num)
 {
 	char reply;
 	CLEAR();
-	printf("ÄãÒÑ¾­³¢ÊÔÁË%d´ÎÁË£¬ÊÇ·ñ¼ÌĞø²ÂÊı£¿y/n or Y/N\n",num);
+	printf("ä½ å·²ç»å°è¯•äº†%dæ¬¡äº†ï¼Œæ˜¯å¦ç»§ç»­çŒœæ•°ï¼Ÿy/n or Y/N\n",num);
 	while (scanf_s(" %c", &reply, 1) != 1 || (reply != 'y' && reply != 'Y' && reply != 'n' && reply != 'N'))
 	{
-		printf("ÊäÈëÎŞĞ§£¬ÇëÊäÈë 'y/Y' ¼ÌĞø»ò 'n/N' ÍË³ö£º\n");
+		printf("è¾“å…¥æ— æ•ˆï¼Œè¯·è¾“å…¥ 'y/Y' ç»§ç»­æˆ– 'n/N' é€€å‡ºï¼š\n");
 		CLEAR();
 	}
 	if (reply == 'n' || reply == 'N')
@@ -71,11 +71,11 @@ int WEATHER(int num)
 		return 0;
 }
 
-//Ö÷º¯Êı
+//ä¸»å‡½æ•°
 int main()
 {
 	int makenumber, num = 0;
-	printf("¿ªÊ¼²ÂÊı×Ö£¬ÊäÈëÒ»¸öÔÚÇø¼ä[%d,%d]Ö®¼äµÄÊı×Ö£º\n", MIN_NUM, MAX_NUM);
+	printf("å¼€å§‹çŒœæ•°å­—ï¼Œè¾“å…¥ä¸€ä¸ªåœ¨åŒºé—´[%d,%d]ä¹‹é—´çš„æ•°å­—ï¼š\n", MIN_NUM, MAX_NUM);
 	makenumber = MAKENUM();
 	while (DECIDE(PUT_CHECK(), makenumber, num) == 1)
 	{
@@ -83,11 +83,11 @@ int main()
 		if (num >= 10 && num % 10 == 0)
 			if (WEATHER(num) == 1)
 			{
-				printf("³ÌĞò½áÊø£¬ÕıÈ·Êı×ÖÊÇ%d\n", makenumber);
+				printf("ç¨‹åºç»“æŸï¼Œæ­£ç¡®æ•°å­—æ˜¯%d\n", makenumber);
 				break;
 			}
 			else
-				printf("ÓÎÏ·¼ÌĞø£¬ÇëÊäÈëÊı×Ö£º\n");
+				printf("æ¸¸æˆç»§ç»­ï¼Œè¯·è¾“å…¥æ•°å­—ï¼š\n");
 	}
 	return 0;
 }
