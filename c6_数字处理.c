@@ -51,3 +51,26 @@ scanf_s("%d", &num);
 }
 return 0;
 }
+
+
+//回文数
+//例如：14689的回文数是146898641
+int main()
+{
+long num=0;
+long arr[10]={0};
+scanf("%ld",&num);
+
+long n=num;
+int len=0;
+do{
+arr[len++]=n%10;
+n/=10;
+}while (n>0);
+
+printf("%ld",num);
+for(int i=1;i<=len;i++)
+printf("%d",arr[i]);
+
+return 0;
+}
