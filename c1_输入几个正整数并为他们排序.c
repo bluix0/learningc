@@ -3,23 +3,8 @@
 编者：bluix0
 时间：2025.2.25
 *********************************/
- /*简版
-*{
-*	//给十个整数排序
-*	int a[10];					//数组装载十个整数
-*	for (int i=0;i<9;i++){
-*		for (int j=i+1;j<=9;j++){
-*			if(a[i]>a[j]){			//找到最小的数并将它放在左边一位
-*				int x =a[i];
-*				a[i]=a[j];
-*				a[j]=x;
-*			}
-*		}
-*	}
-*	for(int k=0;k<=9;k++)
-*	printf("%d",a[k]);
-*}
-*/
+
+//冒泡法排序
 #include<stdio.h>
 int main()
 {	
@@ -65,3 +50,25 @@ int main()
 	}
 	return 0;
 }
+
+//选择法排序
+#include<stdio.h>
+int main()
+{
+	int arr[10] = { 4,2,3,5,2,6,5,2,7,9 };
+	for (int i = 0;i < 10;i++) {
+		int x = i;
+		for (int j = i + 1;j < 10;j++)
+		{
+			if (arr[j] > arr[x])
+				x = j;
+		}
+		if (x != i) {
+			int y = arr[i];
+			arr[i] = arr[x];
+			arr[x] = y;
+		}
+	}
+	for (int i = 0;i < 10;i++)
+		printf("%d", arr[i]);
+	return 0;
