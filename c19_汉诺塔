@@ -1,0 +1,57 @@
+/**********************************
+write:Bluix0
+date:2025-3-28
+Q   :Hanoi问题
+***********************************/
+
+/*
+关于递归，最重要的是递归的尽头
+三个塔，n个大小不一的盘子从下到上从大到小叠在一起叠在a塔上，
+将n个盘子从a移到c上，要求大盘始终在下，可以借助b塔，一次只能用移动一个盘子
+求解print移动步骤
+*/
+
+/*分析:
+要使n个盘子从a到c，需要使n-1个盘从a到b，再使1个最大的盘子从a到c，再使n-1个盘子从b到c
+    要使n-1个盘从a到b，需使n-2个盘从a到c，再使1个最大的盘子从a到b，再使n-2个盘子从c到b
+        ......
+    要使n-1个盘从b到c，需使n-2个盘从b到a，再使1个最大的盘子从b到c，再使n-2个盘子从a到c
+        ......
+
+xyz三个盘子为例，x最大，z最小
+ABC为三个塔，要从A移到C塔
+->表示从哪儿移动到哪儿
+          要使  xyz A->C
+          需使  yz  A->B ： A>C  A>B  C>B
+          再使  x   A->C
+          再使  yz  B->C ： B>A  B>C  A>C
+
+递归的内容为：
+?->? 即从哪儿移到哪儿，这个"哪儿"一直再换，用site1，2，3来表示三个坑位，ABC就在这三个坑里不断换位
+初值(递归的尽头)为：A->C或B->C
+
+*/
+
+#include<stdio.h>
+
+void hanoi (int n,char site1,char site2,char site3);
+
+int main(){
+  int num=0;
+  printf("请输入盘子的数量：\n");
+  scanf("%d",&num);
+  hanoi(num,'A','B','C');
+}
+
+//hanoi
+void hanoi (int n,char site1,char site2,char site3)
+{
+  if(n>1)
+  {
+    hanoi(n-1,site1,site3,site2);
+    printf("%c->%c",site1,site3);
+    hanoi(n-1,site2,site1,site3);
+  }
+  else if(n==1)
+    printf("%c->%c\n",site1,site3);
+}
